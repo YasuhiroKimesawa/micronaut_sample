@@ -1,0 +1,6 @@
+applicationType: function
+defaultPackage: micronaut_sample
+testFramework: spock
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, aws-lambda, aws-lambda-custom-runtime, graalvm, gradle, java, logback, lombok, readme, shade, spock, yaml]
