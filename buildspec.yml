@@ -3,15 +3,15 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install
-  pre_build:
-    commands:
-      - curl -s "https://get.sdkman.io" | bash
-      - source "$HOME/.sdkman/bin/sdkman-init.sh"
-      - sdk install java 21.0.0.r11-grl
-      - sdk install micronaut 2.3.0
-      - sdk use java 21.0.0.r11-grl
-      - sdk use micronaut 2.3.0
+      #- curl -s "https://get.sdkman.io" | bash
+      #- source "$HOME/.sdkman/bin/sdkman-init.sh"
+      #- sdk install java 21.0.0.r11-grl
+      #- sdk install micronaut 2.3.0
+      #- sdk use java 21.0.0.r11-grl
+      #- sdk use micronaut 2.3.0
+      - wget https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.0.0.2/graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz
+      - tar -xzf graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz
+      - export PATH=graalvm-ce-java11-21.0.0.2/bin:$PATH
       - gu install native-image
       - npm install -g
   build:
