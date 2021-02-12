@@ -1,4 +1,4 @@
-service: micronaut_sample
+service: micronaut-sample
 
 provider:
   name: aws
@@ -7,7 +7,7 @@ provider:
   stage: dev
   profile: ${opt:profile, self:custom.defaultProfile}
   region: ap-northeast-1
-  deploymentBucket: ${opt:stage, self:provider.stage}-deployment
+  deploymentBucket: ${opt:stage, self:provider.stage}-micronaut-sample-deployment
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -30,15 +30,12 @@ custom:
   defaultProfile: dummyProfile
 
 package:
-  exclude:
-    - *
-  include:
-    - build/libs/micronaut_sample-0.1-lambda.zip
+  artifact: ./build/libs/micronaut_sample-0.1-lambda.zip
 
 functions:
   LambdaBook:
     name: ${opt:stage, self:provider.stage}-book
-    handler: micronaut_sample.BookSaved
+    handler: micronaut_sample.BookRequestHandler
     description: BookSaved
     memorySize: 512
     timeout: 30

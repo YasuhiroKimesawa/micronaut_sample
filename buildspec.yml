@@ -13,10 +13,10 @@ phases:
       - sdk use java 21.0.0.r11-grl
       - sdk use micronaut 2.3.0
       - gu install native-image
-      - npm install
+      - npm install -g
   build:
     commands:
       - echo build started on `date`
       - ./gradlew clean
       - ./gradlew buildNativeLambda
-      - sls deploy
+      - serverless deploy -v
