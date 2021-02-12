@@ -1,0 +1,52 @@
+service: micronaut_sample
+
+provider:
+  name: aws
+  runtime: provided
+  versionFunctions: false
+  stage: dev
+  profile: ${opt:profile, self:custom.defaultProfile}
+  region: ap-northeast-1
+  deploymentBucket: ${opt:stage, self:provider.stage}-deployment
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "lambda:InvokeAsync"
+        - "lambda:InvokeFunction"
+      Resource:
+        Fn::Join:
+          - ""
+          - - "arn:aws:lambda:"
+            - Ref: AWS::Region
+            - ":"
+            - Ref: AWS::AccountId
+            - ":function:*"
+
+  environment:
+    STAGE_NAME: ${opt:stage, self:provider.stage}
+    LOG_LEVEL: info
+
+custom:
+  defaultProfile: dummyProfile
+
+package:
+  exclude:
+    - *
+  include:
+    - build/libs/micronaut_sample-0.1-lambda.zip
+
+functions:
+  LambdaBook:
+    name: ${opt:stage, self:provider.stage}-book
+    handler: micronaut_sample.BookSaved
+    description: BookSaved
+    memorySize: 512
+    timeout: 30
+    events:
+      - http:
+          path: book
+          method: post
+          cors: false
+          request:
+            schema:
+              application/json: ${file(apigateway/schemas/BookRequest.yml)}

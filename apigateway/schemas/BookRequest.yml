@@ -1,0 +1,12 @@
+---
+$schema: "http://json-schema.org/draft-04/schema#"
+title: "Book Request Schema"
+type: "object"
+required:
+  - "name"
+properties:
+  name:
+    description: "書名"
+    type: "string"
+    minLength: 1
+    maxLength: 100

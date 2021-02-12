@@ -1,4 +1,10 @@
 # SpringCloudFunction Sample
+sdk install micronaut 2.3.0
+sdk install java 21.0.0.r11-grl
+sdk use java 21.0.0.r11-grl
+gu install native-image
+sdk install groovy 2.5.14 
+
 
 # TODO
 - [] ServerlessFrameworkを使用し、単純なレスポンスを返す.Lambdaがデプロイ・実行可能になる
