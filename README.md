@@ -1,14 +1,15 @@
 # SpringCloudFunction Sample
-sdk install micronaut 2.3.0
-sdk install java 21.0.0.r11-grl
-sdk use java 21.0.0.r11-grl
-gu install native-image
-sdk install groovy 2.5.14 
+- sdk install micronaut 2.3.0
+- sdk install java 21.0.0.r11-grl
+- sdk use java 21.0.0.r11-grl
+- gu install native-image
+- sdk install groovy 2.5.14 
 
 
 # TODO
-- [] ServerlessFrameworkを使用し、単純なレスポンスを返す.Lambdaがデプロイ・実行可能になる
-- [] API GatewayからLambdaを実行可能になる/Cognito利用
+- [x] ServerlessFrameworkを使用し、単純なレスポンスを返す.Lambdaがデプロイ・実行可能になる
+- [x] API GatewayからLambdaを実行可能になる
+- [] Cognito利用
 - [] DynamoDBにデータを保存し、取り出せる
 - [] SQSにキューイング、Cloudwatchからバッチ起動し、デキューする
 - [] CQRSの実装・ESを使用する
