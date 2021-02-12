@@ -18,5 +18,5 @@ phases:
     commands:
       - echo build started on `date`
       - ./gradlew clean
-      - ./gradlew buildNativeLambda
+      - ./gradlew buildNativeLambda --debug
       - serverless deploy -v
