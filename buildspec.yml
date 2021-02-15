@@ -22,4 +22,4 @@ phases:
       - ./gradlew clean
       - ./gradlew buildNativeLambda --stacktrace
       - chmod 777 ./build/libs/micronaut_sample-0.1-lambda.zip
-      - npx serverless deploy -v
+      - SLS_DEBUG=* npx serverless deploy -v
