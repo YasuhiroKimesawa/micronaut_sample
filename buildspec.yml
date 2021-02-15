@@ -14,10 +14,10 @@ phases:
       - rm -rf graalvm-ce-java11-linux-amd64-21.0.0.2.tar.gz
       - export PATH=/tmp/graalvm-ce-java11-21.0.0.2/bin:$PATH
       - gu install native-image
-      - npm install -g
+      - npm install
   build:
     commands:
       - echo build started on `date`
       - ./gradlew clean
       - ./gradlew buildNativeLambda --stacktrace
-      - serverless deploy -v
+      - npx serverless deploy -v
