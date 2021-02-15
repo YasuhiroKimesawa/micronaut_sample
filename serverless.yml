@@ -27,7 +27,7 @@ provider:
     LOG_LEVEL: info
 
 custom:
-  defaultProfile: dummyProfile
+  defaultProfile: default
 
 package:
   artifact: ./build/libs/micronaut_sample-0.1-lambda.zip
