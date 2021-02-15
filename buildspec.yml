@@ -15,7 +15,7 @@ phases:
       - export PATH=/tmp/graalvm-ce-java11-21.0.0.2/bin:$PATH
       - gu install native-image
       - npm install
-      - chmod 777 ~/.npm/_npx
+      - chmod 777 ~/.npm
   build:
     commands:
       - echo build started on `date`
