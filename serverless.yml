@@ -5,7 +5,6 @@ provider:
   runtime: provided
   versionFunctions: false
   stage: dev
-  profile: ${opt:profile, self:custom.defaultProfile}
   region: ap-northeast-1
   deploymentBucket: ${opt:stage, self:provider.stage}-micronaut-sample-deployment
   iamRoleStatements:
